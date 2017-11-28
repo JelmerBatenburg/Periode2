@@ -4,14 +4,14 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  productGUID: ed2e8354be8c32d44a297ee048999b97
+  productGUID: 63303084d0fa51746ac0a61fd8ea5c30
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Test Project
+  productName: car test
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -508,14 +508,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Test Project
+  metroPackageName: car test
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Test Project
+  metroApplicationDescription: car test
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -586,12 +586,11 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    UNet: 1
+  cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: f4346a5e-1a2b-498a-8876-3f8b69cc89bb
-  projectName: Test Project
+  cloudProjectId: b6e5e4a4-8b21-48b2-b07c-e222357b62f3
+  projectName: car test
   organizationId: ggparty
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
