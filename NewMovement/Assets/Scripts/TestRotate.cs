@@ -46,7 +46,7 @@ public class TestRotate : MonoBehaviour
             }
         }
 
-        if(Physics.Raycast(transform.position, -transform.up, out jump, 0.6f))
+        if(Physics.Raycast(transform.position, -transform.up, out jump, 1.2f))
         {
             allowJump = true;
         }
@@ -54,7 +54,7 @@ public class TestRotate : MonoBehaviour
         {
             allowJump = false;
         }
-        Debug.DrawRay(transform.position, -transform.up * 0.6f, Color.green);
+        Debug.DrawRay(transform.position, -transform.up * 1.2f, Color.green);
 
         if(Physics.Raycast(transform.position, transform.forward, out wallFront, 0.8f))
         {
