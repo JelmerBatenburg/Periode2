@@ -7,6 +7,13 @@ public class ArmWeapon : MonoBehaviour {
     public int active;
     public float stormFireSpeed;
     public GameObject stormCrystal;
+    public GameObject explodeCrystal;
+    public float explosionSpeed;
+    public GameObject shotgunShard;
+    public float shotgunFireSpeed;
+    public GameObject smgBullet;
+    public float smgSpeed;
+    public float pistolSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -28,13 +35,14 @@ public class ArmWeapon : MonoBehaviour {
         }
         if(active == -1)
         {
-            active = 3;
+            active = 5;
         }
-        if (active == 4)
+        if (active == 6)
         {
             active = 0;
         }
-        if(active == 3)
+        //Flamethrower
+        if(active == 5)
         {
             if (Input.GetAxisRaw("Fire") == 1)
             {
@@ -47,5 +55,74 @@ public class ArmWeapon : MonoBehaviour {
                 }
             }
         }
-	}
+        //FragGrenade
+        if (active == 3)
+        {
+            if (Input.GetAxisRaw("Fire") == 1)
+            {
+                 explosionSpeed += Time.deltaTime;
+                if (explosionSpeed >= 0.8f)
+                {
+                    GameObject g = Instantiate(explodeCrystal, transform.position, transform.rotation);
+                    Destroy(g, 8);
+                    explosionSpeed = 0;
+                }
+            }
+        }
+        //Shotgun
+        if (active == 2)
+        {
+            if (Input.GetAxisRaw("Fire") == 1)
+            {
+                shotgunFireSpeed += Time.deltaTime;
+                if (shotgunFireSpeed <= 0.02f)
+                {
+                    GameObject s1 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    Destroy(s1, 1);
+                    GameObject s2 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    Destroy(s2, 1);
+                    GameObject s3 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    Destroy(s3, 1);
+                    GameObject s4 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    Destroy(s4, 1);
+                    GameObject s5 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    Destroy(s5, 1);
+                    GameObject s6 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                }
+                if(shotgunFireSpeed >= 0.8f)
+                {
+
+                    shotgunFireSpeed = 0;
+                }
+            }
+        }
+        //SMG
+        if (active == 1)
+        {
+            if (Input.GetAxisRaw("Fire") == 1)
+            {
+                smgSpeed += Time.deltaTime;
+                if (smgSpeed >= 0.05f)
+                {
+                    GameObject g = Instantiate(smgBullet, transform.position, transform.rotation);
+                    Destroy(g, 3);
+                    smgSpeed = 0;
+                }
+            }
+        }
+        //Pistol
+        if (active == 0)
+        {
+            if (Input.GetAxisRaw("Fire") == 1)
+            {
+                pistolSpeed += Time.deltaTime;
+                if (pistolSpeed >= 0.5f)
+                {
+                    GameObject g = Instantiate(smgBullet, transform.position, transform.rotation);
+                    Destroy(g, 3);
+                    pistolSpeed = 0;
+                }
+            }
+        }
+    }
 }

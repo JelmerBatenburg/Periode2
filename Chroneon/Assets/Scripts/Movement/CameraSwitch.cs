@@ -8,6 +8,7 @@ public class CameraSwitch : MonoBehaviour
     public GameObject camPos1;
     public GameObject camPos2;
     public int count;
+    public RaycastHit look;
 
     // Use this for initialization
     void Start()
