@@ -5,15 +5,17 @@ using UnityEngine;
 public class ArmWeapon : MonoBehaviour {
     private float count;
     public int active;
-    public float stormFireSpeed;
+    private float stormFireSpeed;
     public GameObject stormCrystal;
     public GameObject explodeCrystal;
-    public float explosionSpeed;
+    private float explosionSpeed;
     public GameObject shotgunShard;
-    public float shotgunFireSpeed;
+    private float shotgunFireSpeed;
     public GameObject smgBullet;
-    public float smgSpeed;
-    public float pistolSpeed;
+    private float smgSpeed;
+    private float pistolSpeed;
+    private bool pistolShoot;
+    private bool shotgunAllowShoot;
 
 	// Use this for initialization
 	void Start () {
@@ -72,27 +74,35 @@ public class ArmWeapon : MonoBehaviour {
         //Shotgun
         if (active == 2)
         {
-            if (Input.GetAxisRaw("Fire") == 1)
+            if(shotgunAllowShoot == false)
             {
                 shotgunFireSpeed += Time.deltaTime;
-                if (shotgunFireSpeed <= 0.02f)
+            }
+            if (Input.GetAxisRaw("Fire") == 1)
+            {
+                if(shotgunAllowShoot == true)
                 {
-                    GameObject s1 = Instantiate(shotgunShard, transform.position, transform.rotation);
-                    Destroy(s1, 1);
-                    GameObject s2 = Instantiate(shotgunShard, transform.position, transform.rotation);
-                    Destroy(s2, 1);
-                    GameObject s3 = Instantiate(shotgunShard, transform.position, transform.rotation);
-                    Destroy(s3, 1);
-                    GameObject s4 = Instantiate(shotgunShard, transform.position, transform.rotation);
-                    Destroy(s4, 1);
-                    GameObject s5 = Instantiate(shotgunShard, transform.position, transform.rotation);
-                    Destroy(s5, 1);
-                    GameObject s6 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    shotgunAllowShoot = false;
+                    if (shotgunFireSpeed <= 0.02f)
+                    {
+                        GameObject s1 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                        Destroy(s1, 1);
+                        GameObject s2 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                        Destroy(s2, 1);
+                        GameObject s3 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                        Destroy(s3, 1);
+                        GameObject s4 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                        Destroy(s4, 1);
+                        GameObject s5 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                        Destroy(s5, 1);
+                        GameObject s6 = Instantiate(shotgunShard, transform.position, transform.rotation);
+                    }
                 }
                 if(shotgunFireSpeed >= 0.8f)
                 {
 
                     shotgunFireSpeed = 0;
+                    shotgunAllowShoot = true;
                 }
             }
         }
@@ -116,12 +126,23 @@ public class ArmWeapon : MonoBehaviour {
             if (Input.GetAxisRaw("Fire") == 1)
             {
                 pistolSpeed += Time.deltaTime;
-                if (pistolSpeed >= 0.5f)
+                if (pistolSpeed >= 0.3f)
                 {
                     GameObject g = Instantiate(smgBullet, transform.position, transform.rotation);
                     Destroy(g, 3);
                     pistolSpeed = 0;
                 }
+            }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                pistolShoot = true;
+                GameObject g = Instantiate(smgBullet, transform.position, transform.rotation);
+                Destroy(g, 3);
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                pistolShoot = false;
+                pistolSpeed = 0;
             }
         }
     }
