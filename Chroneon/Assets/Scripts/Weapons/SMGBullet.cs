@@ -21,9 +21,9 @@ public class SMGBullet : MonoBehaviour {
         transform.Rotate(rotation * Time.deltaTime);
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider c)
     {
-        if(other.gameObject.tag == "Player")
+        if(c.gameObject.tag == "Player")
         {
 
         }
