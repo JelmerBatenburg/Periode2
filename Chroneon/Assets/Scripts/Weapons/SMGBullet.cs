@@ -29,6 +29,10 @@ public class SMGBullet : MonoBehaviour {
         }
         else
         {
+            if(c.gameObject.tag == "Crystal")
+            {
+                c.gameObject.GetComponent<BigCrystal>().DMG(1);
+            }
             Destroy(gameObject);
         }
     }
