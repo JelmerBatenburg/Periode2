@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Wall
   - Crystal
+  - Zone
+  - Drone
+  - BigCrystal
   layers:
   - Default
   - TransparentFX

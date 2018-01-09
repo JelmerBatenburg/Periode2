@@ -26,11 +26,11 @@ public class CameraSwitch : MonoBehaviour
         
         if (count == 0)
         {
-            cam.transform.position = camPos1.transform.position;
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, camPos1.transform.position, Time.deltaTime * 20);
         }
         if (count == 1)
         {
-            cam.transform.position = camPos2.transform.position;
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, camPos2.transform.position, Time.deltaTime * 20);
         }
         if (count == 2)
         {

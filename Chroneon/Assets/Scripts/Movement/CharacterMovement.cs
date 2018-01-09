@@ -20,10 +20,15 @@ public class CharacterMovement : MonoBehaviour
     private bool wallJump;
     private bool wall;
     public Vector3 jumpWall;
+    public float normalSpeed;
+    public float sprintSpeed;
+    public Vector3 wallClimb;
+    public bool Jetpack;
 
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -46,6 +51,15 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetAxisRaw("Sprint") == 1)
+        {
+            speed = sprintSpeed;
+        }
+        else
+        {
+            speed = normalSpeed;
+        }
+
         if (Physics.Raycast(transform.position, -transform.up, out jump, 1.5f))
         {
             allowJump = true;
@@ -56,11 +70,15 @@ public class CharacterMovement : MonoBehaviour
         }
         Debug.DrawRay(transform.position, -transform.up * 1.5f, Color.green);
 
-        if (Physics.Raycast(transform.position, transform.forward, out wallFront, 0.8f))
+        if (Physics.Raycast(transform.position + wallClimb, transform.forward, out wallFront, 0.8f))
         {
             if (wallFront.transform.tag == "Wall")
             {
                 wall = true;
+                if(Input.GetAxisRaw("Climb") == 1)
+                {
+                    speed = 0;
+                }
             }
         }
         else
@@ -75,6 +93,10 @@ public class CharacterMovement : MonoBehaviour
             {
                 rig.velocity = jumpWall;
             }
+        }
+        if(Jetpack && Input.GetButton("Jump"))
+        {
+            rig.velocity = jumpWall;
         }
     }
 }

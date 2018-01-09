@@ -9,9 +9,6 @@ public class SMGBullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        rotation.z = Random.Range(90, -90);
-        startRotation.x = Random.Range(1, -1);
-        startRotation.y = Random.Range(1, -1);
         transform.Rotate(startRotation);
     }
 	
@@ -23,13 +20,13 @@ public class SMGBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider c)
     {
-        if(c.gameObject.tag == "Player")
+        if(c.gameObject.tag == "Player" || c.gameObject.tag == "Drone" || c.gameObject.tag == "Zone")
         {
 
         }
         else
         {
-            if(c.gameObject.tag == "Crystal")
+            if(c.gameObject.tag == "BigCrystal")
             {
                 c.gameObject.GetComponent<BigCrystal>().DMG(1);
             }

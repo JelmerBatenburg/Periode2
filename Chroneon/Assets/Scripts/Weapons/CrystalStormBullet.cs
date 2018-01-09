@@ -17,5 +17,5 @@ public class CrystalStormBullet : MonoBehaviour {
 	void Update () {
         transform.Translate(move);
         transform.localScale += size * Time.deltaTime;
-	}
+    }
 }

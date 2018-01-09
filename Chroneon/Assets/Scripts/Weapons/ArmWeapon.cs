@@ -16,6 +16,8 @@ public class ArmWeapon : MonoBehaviour {
     private float pistolSpeed;
     private bool pistolShoot;
     private bool shotgunAllowShoot;
+    public GameObject missle;
+    private float missleSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -143,6 +145,20 @@ public class ArmWeapon : MonoBehaviour {
             {
                 pistolShoot = false;
                 pistolSpeed = 0;
+            }
+        }
+        //Missle
+        if(active == 4)
+        {
+            if(Input.GetAxisRaw("Fire") == 1)
+            {
+                missleSpeed += Time.deltaTime;
+                if(missleSpeed >= 0.8f)
+                {
+                    missleSpeed = 0;
+                    GameObject g = Instantiate(missle, transform.position, transform.rotation);
+                    Destroy(g, 8);
+                }
             }
         }
     }
