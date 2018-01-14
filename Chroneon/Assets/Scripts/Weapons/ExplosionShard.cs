@@ -37,5 +37,9 @@ public class ExplosionShard : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        if (c.gameObject.tag == "BigCrystal")
+        {
+            c.gameObject.GetComponent<BigCrystal>().DMG(1);
+        }
     }
 }

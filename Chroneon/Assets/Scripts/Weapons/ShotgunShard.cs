@@ -21,12 +21,16 @@ public class ShotgunShard : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Zone")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Zone" || other.gameObject.tag == "ShotgunBullet")
         {
 
         }
         else
         {
+            if (other.gameObject.tag == "BigCrystal")
+            {
+                other.gameObject.GetComponent<BigCrystal>().DMG(1);
+            }
             Destroy(gameObject);
         }
     }

@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 108928598533709210}
   m_Layer: 0
   m_Name: BurstCrystal
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

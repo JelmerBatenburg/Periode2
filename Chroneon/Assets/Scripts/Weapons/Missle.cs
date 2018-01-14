@@ -40,5 +40,9 @@ public class Missle : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
+        if (collision.gameObject.tag == "BigCrystal")
+        {
+            collision.gameObject.GetComponent<BigCrystal>().DMG(1);
+        }
     }
 }

@@ -30,7 +30,7 @@ public class PickupCrystal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Zone"||other.tag == "Drone"||other.tag == "Crystal")
+        if (other.tag == "Zone" || other.tag == "Drone" || other.tag == "Crystal" || other.tag == "ShotgunBullet" || other.tag == "PlayerBullet")
         {
 
         }
@@ -39,6 +39,7 @@ public class PickupCrystal : MonoBehaviour
             if (other.tag == "Player")
             {
                 Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>().AddCrystal(1);
             }
             else
             {

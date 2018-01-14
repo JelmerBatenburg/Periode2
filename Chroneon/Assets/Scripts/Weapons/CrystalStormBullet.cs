@@ -18,4 +18,11 @@ public class CrystalStormBullet : MonoBehaviour {
         transform.Translate(move);
         transform.localScale += size * Time.deltaTime;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "BigCrystal")
+        {
+            other.gameObject.GetComponent<BigCrystal>().DMG(1);
+        }
+    }
 }

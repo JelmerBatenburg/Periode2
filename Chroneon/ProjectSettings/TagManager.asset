@@ -9,6 +9,13 @@ TagManager:
   - Zone
   - Drone
   - BigCrystal
+  - ShotgunBullet
+  - CrystalManager
+  - HealthManager
+  - EnergyManager
+  - Arm
+  - CurrentWeapon
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
