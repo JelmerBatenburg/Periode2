@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33509461441949432}
   - component: {fileID: 23113369061174540}
   - component: {fileID: 95707903831373524}
+  - component: {fileID: 65197757148304934}
   m_Layer: 0
   m_Name: WallDecoration2
   m_TagString: Untagged
@@ -81,6 +82,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049177402588448}
   m_Mesh: {fileID: 4300000, guid: eb399fa6a3a16c04b9f00a1339105731, type: 3}
+--- !u!65 &65197757148304934
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049177402588448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.72524, y: 12.401267, z: 11.18151}
+  m_Center: {x: 0.13738, y: 0.5925981, z: 4.5907545}
 --- !u!95 &95707903831373524
 Animator:
   serializedVersion: 3

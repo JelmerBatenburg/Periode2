@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33443440035665978}
   - component: {fileID: 23996574134771914}
   - component: {fileID: 95318937150768914}
+  - component: {fileID: 64920861534702892}
   m_Layer: 0
   m_Name: BrokenWall4
   m_TagString: Untagged
@@ -80,6 +81,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153216223591486}
+  m_Mesh: {fileID: 4300000, guid: 542807810d2fe764e8b881a407147f71, type: 3}
+--- !u!64 &64920861534702892
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153216223591486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 542807810d2fe764e8b881a407147f71, type: 3}
 --- !u!95 &95318937150768914
 Animator:

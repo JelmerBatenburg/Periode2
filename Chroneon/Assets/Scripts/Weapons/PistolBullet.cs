@@ -23,7 +23,7 @@ public class PistolBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider c)
     {
-        if (c.gameObject.tag == "Player" || c.gameObject.tag == "Drone" || c.gameObject.tag == "Zone")
+        if (c.gameObject.tag == "Player"|| c.gameObject.tag == "Zone")
         {
 
         }
@@ -32,6 +32,17 @@ public class PistolBullet : MonoBehaviour
             if (c.gameObject.tag == "BigCrystal")
             {
                 c.gameObject.GetComponent<BigCrystal>().DMG(1);
+            }
+            if (c.gameObject.tag == "Drone")
+            {
+                if (c.gameObject.GetComponent<Drone>() == true)
+                {
+                    c.gameObject.GetComponent<Drone>().Damage(10);
+                }
+            }
+            if (c.gameObject.tag == "Boss1")
+            {
+                c.gameObject.GetComponent<Boss1>().DMG(12);
             }
             Destroy(gameObject);
         }

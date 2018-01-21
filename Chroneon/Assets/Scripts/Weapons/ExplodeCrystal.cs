@@ -30,9 +30,24 @@ public class ExplodeCrystal : MonoBehaviour {
         }
         else
         {
-            if (other.gameObject.tag == "BigCrystal")
+            if (other.gameObject.tag == "BigCrystal" || other.gameObject.tag == "Drone" || other.gameObject.tag == "Boss1")
             {
-                other.gameObject.GetComponent<BigCrystal>().DMG(3);
+                if(other.gameObject.tag == "BigCrystal")
+                {
+                    other.gameObject.GetComponent<BigCrystal>().DMG(3);
+                }
+                if (other.gameObject.tag == "Drone")
+                {
+                    if (other.gameObject.GetComponent<Drone>() == true)
+                    {
+                        other.gameObject.GetComponent<Drone>().Damage(50);
+                    }
+                }
+
+                if (other.gameObject.tag == "Boss1")
+                {
+                    other.gameObject.GetComponent<Boss1>().DMG(43);
+                }
             }
             else
             {

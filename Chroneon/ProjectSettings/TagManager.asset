@@ -16,6 +16,10 @@ TagManager:
   - Arm
   - CurrentWeapon
   - PlayerBullet
+  - WeaponManager
+  - Spike
+  - Boss1
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

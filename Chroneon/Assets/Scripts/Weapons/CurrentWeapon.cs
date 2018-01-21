@@ -10,6 +10,7 @@ public class CurrentWeapon : MonoBehaviour {
     public GameObject burst;
     public GameObject missle;
     public GameObject storm;
+    public WeaponManager check;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class CurrentWeapon : MonoBehaviour {
         missle.SetActive(false);
         storm.SetActive(false);
         weapon = GameObject.FindWithTag("Arm").GetComponent<ArmWeapon>();
+        check = GameObject.FindWithTag("WeaponManager").GetComponent<WeaponManager>();
     }
 
     public void Check()
@@ -33,7 +35,7 @@ public class CurrentWeapon : MonoBehaviour {
             missle.SetActive(false);
             storm.SetActive(false);
         }
-        if (weapon.active == 1)
+        if (weapon.active == check.smgSlot)
         {
             pistol.SetActive(false);
             smg.SetActive(true);
@@ -42,7 +44,7 @@ public class CurrentWeapon : MonoBehaviour {
             missle.SetActive(false);
             storm.SetActive(false);
         }
-        if (weapon.active == 2)
+        if (weapon.active == check.shotgunSlot)
         {
             pistol.SetActive(false);
             smg.SetActive(false);
@@ -51,7 +53,7 @@ public class CurrentWeapon : MonoBehaviour {
             missle.SetActive(false);
             storm.SetActive(false);
         }
-        if (weapon.active == 3)
+        if (weapon.active == check.fragSlot)
         {
             pistol.SetActive(false);
             smg.SetActive(false);
@@ -60,7 +62,7 @@ public class CurrentWeapon : MonoBehaviour {
             missle.SetActive(false);
             storm.SetActive(false);
         }
-        if (weapon.active == 4)
+        if (weapon.active == check.missleSlot)
         {
             pistol.SetActive(false);
             smg.SetActive(false);
@@ -69,7 +71,7 @@ public class CurrentWeapon : MonoBehaviour {
             missle.SetActive(true);
             storm.SetActive(false);
         }
-        if (weapon.active == 5)
+        if (weapon.active == check.crystalStormSlot)
         {
             pistol.SetActive(false);
             smg.SetActive(false);

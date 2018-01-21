@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952070b7bcd0e144ba571e9586643b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -30, y: 0, z: 0}
+  movement: {x: -76, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 90, z: 0}
   dmg: 10

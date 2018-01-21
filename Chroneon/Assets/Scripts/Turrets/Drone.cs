@@ -15,6 +15,11 @@ public class Drone : MonoBehaviour {
     public GameObject barrel;
     public GameObject zone;
     public bool movement = true;
+    public float hp = 100;
+    public GameObject droneLight;
+    public Material off;
+    public GameObject particle;
+    public GameObject smoke;
 
 	// Use this for initialization
 	void Start () {
@@ -40,6 +45,16 @@ public class Drone : MonoBehaviour {
                 Destroy(g, 2);
             }
         }
+        if(hp <= 0)
+        {
+            gameObject.AddComponent<Rigidbody>();
+            Instantiate(smoke, transform.position, transform.rotation, gameObject.transform);
+            droneLight.GetComponent<Renderer>().material = off;
+            active = false;
+            Destroy(gameObject,20);
+            DestroyImmediate(gameObject.GetComponent<Drone>());
+            DestroyImmediate(particle);
+        }
 	}
     private void OnTriggerStay(Collider other)
     {
@@ -54,5 +69,10 @@ public class Drone : MonoBehaviour {
         {
             movement = true;
         }
+    }
+
+    public void Damage(int dmg)
+    {
+        hp -= dmg;
     }
 }

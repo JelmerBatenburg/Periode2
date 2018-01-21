@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour {
     public float maxHp;
     public Text text;
     
-
+    
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(gameObject);
@@ -19,5 +19,11 @@ public class HealthManager : MonoBehaviour {
 	void Update () {
         bar.GetComponent<Image>().fillAmount = 1 / maxHp * hp;
         text.text = Mathf.RoundToInt(hp).ToString() + " / " + maxHp.ToString();
+
+        if(hp <= 0)
+        {
+            GameObject.FindWithTag("Player").transform.position = GameObject.FindWithTag("SpawnPoint").transform.position;
+            hp = maxHp;
+        }
     }
 }

@@ -44,5 +44,17 @@ public class Missle : MonoBehaviour {
         {
             collision.gameObject.GetComponent<BigCrystal>().DMG(1);
         }
+        if (collision.gameObject.tag == "Drone")
+        {
+            if (collision.gameObject.GetComponent<Drone>() == true)
+            {
+                collision.gameObject.GetComponent<Drone>().Damage(50);
+            }
+        }
+
+        if (collision.gameObject.tag == "Boss1")
+        {
+            collision.gameObject.GetComponent<Boss1>().DMG(45);
+        }
     }
 }

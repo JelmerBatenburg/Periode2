@@ -20,7 +20,7 @@ public class SMGBullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider c)
     {
-        if(c.gameObject.tag == "Player" || c.gameObject.tag == "Drone" || c.gameObject.tag == "Zone")
+        if(c.gameObject.tag == "Player" || c.gameObject.tag == "Zone")
         {
 
         }
@@ -29,6 +29,17 @@ public class SMGBullet : MonoBehaviour {
             if(c.gameObject.tag == "BigCrystal")
             {
                 c.gameObject.GetComponent<BigCrystal>().DMG(1);
+            }
+            if (c.gameObject.tag == "Drone")
+            {
+                if (c.gameObject.GetComponent<Drone>() == true)
+                {
+                    c.gameObject.GetComponent<Drone>().Damage(4);
+                }
+            }
+            if(c.gameObject.tag == "Boss1")
+            {
+                c.gameObject.GetComponent<Boss1>().DMG(5);
             }
             Destroy(gameObject);
         }

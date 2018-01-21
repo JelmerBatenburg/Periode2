@@ -24,5 +24,17 @@ public class CrystalStormBullet : MonoBehaviour {
         {
             other.gameObject.GetComponent<BigCrystal>().DMG(1);
         }
+        if(other.gameObject.tag == "Drone")
+        {
+            if(other.gameObject.GetComponent<Drone>() == true)
+            {
+                other.gameObject.GetComponent<Drone>().Damage(3);
+            }
+        }
+
+        if (other.gameObject.tag == "Boss1")
+        {
+            other.gameObject.GetComponent<Boss1>().DMG(5);
+        }
     }
 }

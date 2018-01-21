@@ -33,5 +33,16 @@ public class ShotgunShard : MonoBehaviour {
             }
             Destroy(gameObject);
         }
+        if (other.gameObject.tag == "Drone")
+        {
+            if (other.gameObject.GetComponent<Drone>() == true)
+            {
+                other.gameObject.GetComponent<Drone>().Damage(12);
+            }
+        }
+        if (other.gameObject.tag == "Boss1")
+        {
+            other.gameObject.GetComponent<Boss1>().DMG(13);
+        }
     }
 }

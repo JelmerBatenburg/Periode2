@@ -24,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
     public float sprintSpeed;
     public Vector3 wallClimb;
     public bool Jetpack;
+    public bool allowMovement = true;
 
     void Start()
     {
@@ -34,69 +35,76 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hor = Input.GetAxis("Horizontal");
-        ver = Input.GetAxis("Vertical");
-        v.x = hor;
-        v.z = ver;
-        transform.Translate(v * Time.deltaTime * speed);
-        r.y = Input.GetAxis("Mouse X");
-        r2.x = -Input.GetAxis("Mouse Y");
-        transform.Rotate(r);
-        cam.transform.Rotate(r2);
-        if (allowJump == true)
+        if (allowMovement)
         {
-            if (Input.GetButtonDown("Jump") == true)
+            if (Input.GetButtonDown("SetPoint"))
             {
-                rig.velocity = hight;
+                GameObject.FindWithTag("SpawnPoint").transform.position = transform.position;
             }
-        }
-
-        if (Input.GetAxisRaw("Sprint") == 1)
-        {
-            speed = sprintSpeed;
-        }
-        else
-        {
-            speed = normalSpeed;
-        }
-
-        if (Physics.Raycast(transform.position, -transform.up, out jump, 1.5f))
-        {
-            allowJump = true;
-        }
-        else
-        {
-            allowJump = false;
-        }
-        Debug.DrawRay(transform.position, -transform.up * 1.5f, Color.green);
-
-        if (Physics.Raycast(transform.position + wallClimb, transform.forward, out wallFront, 0.8f))
-        {
-            if (wallFront.transform.tag == "Wall")
+            hor = Input.GetAxis("Horizontal");
+            ver = Input.GetAxis("Vertical");
+            v.x = hor;
+            v.z = ver;
+            transform.Translate(v * Time.deltaTime * speed);
+            r.y = Input.GetAxis("Mouse X");
+            r2.x = -Input.GetAxis("Mouse Y");
+            transform.Rotate(r);
+            cam.transform.Rotate(r2);
+            if (allowJump == true)
             {
-                wall = true;
-                if(Input.GetAxisRaw("Climb") == 1)
+                if (Input.GetButtonDown("Jump") == true)
                 {
-                    speed = 0;
+                    rig.velocity = hight;
                 }
             }
-        }
-        else
-        {
-            wall = false;
-        }
-        Debug.DrawRay(transform.position, transform.forward * 1, Color.red);
 
-        if (wall == true)
-        {
-            if (Input.GetAxisRaw("Climb") == 1)
+            if (Input.GetAxisRaw("Sprint") == 1)
+            {
+                speed = sprintSpeed;
+            }
+            else
+            {
+                speed = normalSpeed;
+            }
+
+            if (Physics.Raycast(transform.position, -transform.up, out jump, 1.5f))
+            {
+                allowJump = true;
+            }
+            else
+            {
+                allowJump = false;
+            }
+            Debug.DrawRay(transform.position, -transform.up * 1.5f, Color.green);
+
+            if (Physics.Raycast(transform.position + wallClimb, transform.forward, out wallFront, 0.8f))
+            {
+                if (wallFront.transform.tag == "Wall")
+                {
+                    wall = true;
+                    if (Input.GetAxisRaw("Climb") == 1)
+                    {
+                        speed = 0;
+                    }
+                }
+            }
+            else
+            {
+                wall = false;
+            }
+            Debug.DrawRay(transform.position, transform.forward * 1, Color.red);
+
+            if (wall == true)
+            {
+                if (Input.GetAxisRaw("Climb") == 1)
+                {
+                    rig.velocity = jumpWall;
+                }
+            }
+            if (Jetpack && Input.GetButton("Jump"))
             {
                 rig.velocity = jumpWall;
             }
-        }
-        if(Jetpack && Input.GetButton("Jump"))
-        {
-            rig.velocity = jumpWall;
         }
     }
 }

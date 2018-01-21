@@ -41,5 +41,17 @@ public class ExplosionShard : MonoBehaviour {
         {
             c.gameObject.GetComponent<BigCrystal>().DMG(1);
         }
+        if (c.gameObject.tag == "Drone")
+        {
+            if (c.gameObject.GetComponent<Drone>() == true)
+            {
+                c.gameObject.GetComponent<Drone>().Damage(8);
+            }
+        }
+
+        if (c.gameObject.tag == "Boss1")
+        {
+            c.gameObject.GetComponent<Boss1>().DMG(12);
+        }
     }
 }
