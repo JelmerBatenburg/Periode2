@@ -46,7 +46,7 @@ public class Boss1 : MonoBehaviour
             transform.LookAt(direction);
             transform.Translate(movement * Time.deltaTime);
             attack += Time.deltaTime;
-            if(attack >= 4)
+            if(attack >= 2)
             {
                 currentAttack = Random.Range(1,4);
                 attack = 0;

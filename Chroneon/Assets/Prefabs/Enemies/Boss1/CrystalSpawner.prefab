@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7be239bb25b1c4d9a915bc984dcaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: 0, y: 0, z: 17}
+  movement: {x: 0, y: 0, z: 35}
   counter: 0
   crystal: {fileID: 1349955529952012, guid: 31469d7db58321b4d815f1a07a3ca15a, type: 2}
-  spawnRate: 0.1
+  spawnRate: 0.05
   size: {x: 0.3, y: 0.3, z: 0.3}

@@ -8,7 +8,6 @@ public class PickupCrystal : MonoBehaviour
     public Rigidbody rig;
     public Vector3 startLaunch;
     public float timer;
-    private Vector3 stop;
 
     void Start()
     {
@@ -50,7 +49,7 @@ public class PickupCrystal : MonoBehaviour
                 else
                 {
                     rig.isKinematic = true;
-                    rig.velocity = stop;
+                    rig.velocity = new Vector3(0,0,0);
                 }
             }
         }

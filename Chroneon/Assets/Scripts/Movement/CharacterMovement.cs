@@ -25,15 +25,18 @@ public class CharacterMovement : MonoBehaviour
     public Vector3 wallClimb;
     public bool Jetpack;
     public bool allowMovement = true;
+    public EnergyManager check;
+    public float jetpackEnergy;
 
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        check = GameObject.FindWithTag("EnergyManager").GetComponent<EnergyManager>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (allowMovement)
         {
@@ -67,7 +70,7 @@ public class CharacterMovement : MonoBehaviour
                 speed = normalSpeed;
             }
 
-            if (Physics.Raycast(transform.position, -transform.up, out jump, 1.5f))
+            if (Physics.Raycast(transform.position, -transform.up, out jump, 1.8f))
             {
                 allowJump = true;
             }
@@ -101,9 +104,10 @@ public class CharacterMovement : MonoBehaviour
                     rig.velocity = jumpWall;
                 }
             }
-            if (Jetpack && Input.GetButton("Jump"))
+            if (Jetpack && Input.GetButton("Jump") && check.energy >= jetpackEnergy)
             {
                 rig.velocity = jumpWall;
+                check.energy -= jetpackEnergy;
             }
         }
     }

@@ -277,13 +277,13 @@ MonoBehaviour:
   active: 0
   attack: 0
   currentAttack: 0
-  dashSpeed: 25
+  dashSpeed: 30
   crystalSpawner: {fileID: 1538582194047952, guid: 99fec82798c522940a802f2bca9ea1c4,
     type: 2}
   crystalSpike: {fileID: 1349955529952012, guid: 31469d7db58321b4d815f1a07a3ca15a,
     type: 2}
   ground: {x: 0, y: -2, z: 0}
-  hp: 860
+  hp: 1500
 --- !u!135 &135169455169176724
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -294,7 +294,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 40
+  m_Radius: 80
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135492949740405890
 SphereCollider:

@@ -24,7 +24,7 @@ public class Boss1SpikeSpawner : MonoBehaviour {
             counter = 0;
             GameObject g = Instantiate(crystal, transform.position, transform.rotation);
             g.transform.localScale = size;
-            size *= 1.2f;
+            size *= 1.1f;
         }
 	}
 }
