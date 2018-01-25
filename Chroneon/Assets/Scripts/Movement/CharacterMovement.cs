@@ -13,7 +13,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 r2;
     public Rigidbody rig;
     public Vector3 hight;
-    private bool allowJump;
+    public bool allowJump;
     private Vector3 position;
     public RaycastHit jump;
     public RaycastHit wallFront;
@@ -68,15 +68,6 @@ public class CharacterMovement : MonoBehaviour
             else
             {
                 speed = normalSpeed;
-            }
-
-            if (Physics.Raycast(transform.position, -transform.up, out jump, 1.8f))
-            {
-                allowJump = true;
-            }
-            else
-            {
-                allowJump = false;
             }
             Debug.DrawRay(transform.position, -transform.up * 1.5f, Color.green);
 
