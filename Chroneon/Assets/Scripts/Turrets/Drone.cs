@@ -51,6 +51,7 @@ public class Drone : MonoBehaviour {
             Instantiate(smoke, transform.position, transform.rotation, gameObject.transform);
             droneLight.GetComponent<Renderer>().material = off;
             active = false;
+            gameObject.tag = "Zone";
             Destroy(gameObject,20);
             DestroyImmediate(gameObject.GetComponent<Drone>());
             DestroyImmediate(particle);
