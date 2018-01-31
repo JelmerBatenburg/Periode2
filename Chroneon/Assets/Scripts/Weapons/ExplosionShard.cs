@@ -48,6 +48,13 @@ public class ExplosionShard : MonoBehaviour {
                 c.gameObject.GetComponent<Drone>().Damage(8);
             }
         }
+        if (c.gameObject.tag == "Roller")
+        {
+            if (c.gameObject.GetComponent<EnemyRoller>() == true)
+            {
+                c.gameObject.GetComponent<EnemyRoller>().Damage(6);
+            }
+        }
 
         if (c.gameObject.tag == "Boss1")
         {

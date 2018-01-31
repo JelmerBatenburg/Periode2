@@ -57,20 +57,6 @@ public class Drone : MonoBehaviour {
             DestroyImmediate(particle);
         }
 	}
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            movement = false;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            movement = true;
-        }
-    }
 
     public void Damage(int dmg)
     {

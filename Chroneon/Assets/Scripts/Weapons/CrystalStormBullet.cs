@@ -31,6 +31,13 @@ public class CrystalStormBullet : MonoBehaviour {
                 other.gameObject.GetComponent<Drone>().Damage(3);
             }
         }
+        if (other.gameObject.tag == "Roller")
+        {
+            if (other.gameObject.GetComponent<EnemyRoller>() == true)
+            {
+                other.gameObject.GetComponent<EnemyRoller>().Damage(3);
+            }
+        }
 
         if (other.gameObject.tag == "Boss1")
         {

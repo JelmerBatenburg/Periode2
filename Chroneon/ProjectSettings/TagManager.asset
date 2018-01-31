@@ -20,6 +20,7 @@ TagManager:
   - Spike
   - Boss1
   - SpawnPoint
+  - Roller
   layers:
   - Default
   - TransparentFX

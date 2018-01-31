@@ -40,6 +40,13 @@ public class ShotgunShard : MonoBehaviour {
                 other.gameObject.GetComponent<Drone>().Damage(12);
             }
         }
+        if (other.gameObject.tag == "Roller")
+        {
+            if (other.gameObject.GetComponent<EnemyRoller>() == true)
+            {
+                other.gameObject.GetComponent<EnemyRoller>().Damage(10);
+            }
+        }
         if (other.gameObject.tag == "Boss1")
         {
             other.gameObject.GetComponent<Boss1>().DMG(13);

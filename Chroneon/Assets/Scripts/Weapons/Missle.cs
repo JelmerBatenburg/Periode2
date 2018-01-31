@@ -51,6 +51,13 @@ public class Missle : MonoBehaviour {
                 collision.gameObject.GetComponent<Drone>().Damage(50);
             }
         }
+        if (collision.gameObject.tag == "Roller")
+        {
+            if (collision.gameObject.GetComponent<EnemyRoller>() == true)
+            {
+                collision.gameObject.GetComponent<EnemyRoller>().Damage(50);
+            }
+        }
 
         if (collision.gameObject.tag == "Boss1")
         {

@@ -40,10 +40,6 @@ public class CharacterMovement : MonoBehaviour
     {
         if (allowMovement)
         {
-            if (Input.GetButtonDown("SetPoint"))
-            {
-                GameObject.FindWithTag("SpawnPoint").transform.position = transform.position;
-            }
             hor = Input.GetAxis("Horizontal");
             ver = Input.GetAxis("Vertical");
             v.x = hor;
@@ -55,6 +51,11 @@ public class CharacterMovement : MonoBehaviour
             cam.transform.Rotate(r2);
             if (allowJump == true)
             {
+                if (Input.GetButtonDown("SetPoint"))
+                {
+                    GameObject.FindWithTag("SpawnPoint").transform.position = transform.position;
+                }
+
                 if (Input.GetButtonDown("Jump") == true)
                 {
                     rig.velocity = hight;

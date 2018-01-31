@@ -8,11 +8,13 @@ public class Shop : MonoBehaviour {
     public CharacterMovement player;
     public GameObject use;
     public RaycastHit check;
+    public WeaponManager shoot;
 
 	// Use this for initialization
 	void Start () {
         shopPanel.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+        shoot = GameObject.FindWithTag("WeaponManager").GetComponent<WeaponManager>();
 	}
 	
 	// Update is called once per frame
@@ -50,12 +52,6 @@ public class Shop : MonoBehaviour {
         player.allowMovement = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-    }
-    public void CloseShop()
-    {
-        shopPanel.SetActive(false);
-        player.allowMovement = true;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        shoot.allowShooting = false;
     }
 }

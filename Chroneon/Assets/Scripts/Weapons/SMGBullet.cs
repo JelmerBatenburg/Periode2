@@ -37,7 +37,14 @@ public class SMGBullet : MonoBehaviour {
                     c.gameObject.GetComponent<Drone>().Damage(4);
                 }
             }
-            if(c.gameObject.tag == "Boss1")
+            if (c.gameObject.tag == "Roller")
+            {
+                if (c.gameObject.GetComponent<EnemyRoller>() == true)
+                {
+                    c.gameObject.GetComponent<EnemyRoller>().Damage(10);
+                }
+            }
+            if (c.gameObject.tag == "Boss1")
             {
                 c.gameObject.GetComponent<Boss1>().DMG(5);
             }
