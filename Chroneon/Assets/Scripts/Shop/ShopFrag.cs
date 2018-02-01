@@ -32,7 +32,7 @@ public class ShopFrag : MonoBehaviour {
             check.weaponAmount += 1;
             cashCheck.crystal -= priceInput;
             cashCheck.AddCrystal(0);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

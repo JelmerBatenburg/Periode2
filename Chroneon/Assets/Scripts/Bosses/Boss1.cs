@@ -16,6 +16,7 @@ public class Boss1 : MonoBehaviour
     public GameObject crystalSpike;
     public Vector3 ground;
     public float hp;
+    public GameObject teleportPad;
 
     // Use this for initialization
     void Start()
@@ -31,6 +32,7 @@ public class Boss1 : MonoBehaviour
             active = false;
             transform.localScale *= Time.deltaTime;
             Destroy(gameObject);
+            teleportPad.SetActive(true);
         }
 
         if(movement.z >= 5)

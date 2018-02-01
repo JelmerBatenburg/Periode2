@@ -18,7 +18,6 @@ public class WeaponManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(gameObject);
 	}
 	
 	// Update is called once per frame

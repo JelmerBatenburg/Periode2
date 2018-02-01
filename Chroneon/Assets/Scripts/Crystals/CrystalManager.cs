@@ -9,7 +9,6 @@ public class CrystalManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        DontDestroyOnLoad(gameObject);
         text.GetComponent<Text>().text = crystal.ToString();
     }
 	
